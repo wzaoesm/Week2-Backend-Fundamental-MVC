@@ -68,19 +68,3 @@ getUserDataPromise(2)
 })();
 ```
 
-**Jawaban**:
-1. Callback:
-- Membuat fungsi getUserDataCallback dengan argumen callback.
-- Melakukan simulasi pengambilan data setelah 1 detik.
-- Memanggil callback dengan data pengguna.
-
-2. Promise:
-- Membuat fungsi getUserDataPromise.
-- Mengembalikan Promise dengan simulasi pengambilan data.
-- Menggunakan resolve untuk mengembalikan data pengguna.
-
-3. Async/Await:
-- Membuat fungsi getUserDataAsync.
-- Menggunakan await dalam Promise untuk menunggu hasil pengambilan data.
-- Mengembalikan data pengguna setelah simulasi selesai.
-
