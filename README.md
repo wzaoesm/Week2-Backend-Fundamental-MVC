@@ -5,6 +5,7 @@ Welcome to week 2 ges, gimana week 1 nya ? sudah merasa kepala kalian mau meleda
 ## Week 2 (Berurutan) 
 - [Back-End Fundamental](https://github.com/RPN-Phase-1/Week2-Backend-Fundamental-MVC/blob/main/study_material/backend-fundamental.md)
 - [Back-End Concept](https://github.com/RPN-Phase-1/Week2-Backend-Fundamental-MVC/blob/main/study_material/backend-cocept.md)
+- [Instaling Linux di Windows](https://github.com/RPN-Phase-1/Week2-Backend-Fundamental-MVC/blob/main/study_material/linux-wsl.md)
 - [Node Js Module](https://github.com/RPN-Phase-1/Week2-Backend-Fundamental-MVC/blob/main/study_material/node-module.md)
 - [Logic Nolep (Encrypt & Decrypt) :exploding_head: ](https://github.com/RPN-Phase-1/Week2-Backend-Fundamental-MVC/blob/main/logic_nolep/ln-encryptDecrypt.md)
 - [Asynchronous Javascript](https://github.com/RPN-Phase-1/Week2-Backend-Fundamental-MVC/blob/main/study_material/asynchronus-js.md)
@@ -12,5 +13,7 @@ Welcome to week 2 ges, gimana week 1 nya ? sudah merasa kepala kalian mau meleda
 - [Node Internal Module](https://github.com/RPN-Phase-1/Week2-Backend-Fundamental-MVC/blob/main/study_material/node-internal-module.md)
 - [JSON](https://github.com/RPN-Phase-1/Week2-Backend-Fundamental-MVC/blob/main/study_material/json.md)
 - [Logic Nolep (Hospital Interface) :exploding_head: ](https://github.com/RPN-Phase-1/Week2-Backend-Fundamental-MVC/blob/main/logic_nolep/ln-hospitalInterface.md)
+- [CLI Chalk](https://github.com/RPN-Phase-1/Week2-Backend-Fundamental-MVC/blob/main/study_material/cli-app.md)
+- [Logic Nolep (CLI App Game) :exploding_head: ](https://github.com/RPN-Phase-1/Week2-Backend-Fundamental-MVC/blob/main/logic_nolep/cli-app-game.md)
 
 Mari Lanjut ke minggu selanjutnya, [LET'S GOOOO :rocket::rocket::rocket::rocket: ](https://github.com/RPN-Phase-1/Week3-Backend-MVC-Database)
