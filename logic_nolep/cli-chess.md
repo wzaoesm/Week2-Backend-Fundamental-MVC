@@ -11,19 +11,12 @@ persyaratannya:
 2. para bidak catur bisa digerakan sesuai aturan catur yang ada
 3. game catur di mainkan dengan 2 orang secara bergantian
 4. menggerakan bidak catur menggunakan command (e.g., e2 e4)
-   - e2 (commang ke-1) bidak yang ingin di herakan
+   - e2 (commang ke-1) bidak yang ingin di gerakan
    - e4 (command ke-2) bidak akan di gerakan ke sana
 5. game harus bisa dimainkan dari awal hingga selesai 
 
 ```js
-import readline from 'readline';
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-// Define the chess board
 const board = [
   ['♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜'],
   ['♟', '♟', '♟', '♟', '♟', '♟', '♟', '♟'],
@@ -34,6 +27,7 @@ const board = [
   ['♙', '♙', '♙', '♙', '♙', '♙', '♙', '♙'],
   ['♖', '♘', '♗', '♕', '♔', '♗', '♘', '♖']
 ];
+
 ```
 
 ***tampilan bidak catur dan ukuran board harus sama seperti di atas. bebas gunakan semua refrensi yang ada di internet***
