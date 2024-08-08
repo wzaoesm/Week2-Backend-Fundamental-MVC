@@ -1,4 +1,4 @@
-# Asynchronous Javascript Part 14
+# Asynchronous Javascript
 Selama ini code kalian berjalan synchronous (berurutan), kita akan belajar senjata powerful JS yaitu Asynchronous.
 
 ## Asynchronous JavaScript
@@ -32,79 +32,287 @@ Output: 1, 3, 2 (2 ditunda selama 1 detik)
 
 <br/>
 
-2. **Callbacks**:
+## Perbandingan Callbacks, Promise, dan Async & Await
 
+![image](https://github.com/user-attachments/assets/daa7f1c3-9b06-49aa-a0e1-d15e1d6ecad4)
 
-Callback adalah sebuah fungsi yang dilewatkan sebagai argumen ke dalam fungsi lain dan dijalankan setelah fungsi tersebut selesai. Ini adalah salah satu cara umum untuk mengelola operasi asynchronous.
+### 1. **Callbacks**:
 
-Contoh:
+Callback adalah sebuah fungsi yang dilewatkan sebagai argumen ke dalam fungsi lain dan dijalankan setelah fungsi tersebut selesai. Saat menulis panggilan balik (Callback), kita akan mendapatkan serangkaian panggilan bersarang. Hal ini mudah dilihat ketika kita melihat kode di bawah ini karena semuanya cenderung mengarah ke kanan. Pergeseran ini juga dikenal sebagai "Piramida Kehancuran".
+
+Contoh dengan API Pokemon dan Callback:
+
 ```js
-function fetchData(callback) {
-  setTimeout(() => {
-    const data = 'Some data';
-    callback(data);
-  }, 1000);
-}
+const fetch = require('node-fetch');
 
-fetchData((result) => {
-  console.log(result);
-});
+// Fungsi untuk mendapatkan data Pokémon dengan callback
+const getPokemonDataCallback = function(
+  pokemonName, // Nama Pokémon yang ingin diambil datanya
+  callback,    // Callback untuk menangani data berhasil
+  callbackError // Callback untuk menangani error
+) {
+  // Ambil data dari API Pokémon
+  fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Misalnya kita ingin menambahkan beberapa data tambahan (contoh: jenis Pokémon)
+      const pokemon = {
+        id: data.id,
+        name: data.name,
+        types: data.types.map(typeInfo => typeInfo.type.name)
+      };
+
+      // Panggil callback dengan data Pokémon
+      callback(pokemon);
+    })
+    .catch(error => {
+      // Panggil callbackError jika terjadi error
+      callbackError(error);
+    });
+};
+
+// Contoh penggunaan
+const handlePokemonData = (pokemon) => {
+  console.log('Pokemon data:', pokemon);
+};
+
+const handleError = (error) => {
+  console.error('Error fetching Pokémon data:', error);
+};
+
+// Eksekusi fungsi dengan nama Pokémon 'pikachu'
+getPokemonDataCallback('pikachu', handlePokemonData, handleError);
+
 ```
 
-3. **Promises**:
+**Penjelasan:**
+  1. **`getPokemonDataCallback(pokemonName, callback, callbackError)`**:
+     - Mengambil data Pokémon berdasarkan nama dari API menggunakan `fetch`.
+     - Menyusun data Pokémon ke dalam objek dengan ID, nama, dan jenis Pokémon.
+     - Memanggil `callback` dengan data Pokémon jika berhasil.
+     - Memanggil `callbackError` jika terjadi kesalahan.
+    
+  2. **`handlePokemonData(pokemon)`**:
+     - Callback untuk menangani data yang berhasil diambil dari API.
+     - Mencetak data Pokémon ke konsol.
+    
+  3. **`handleError(error)`**:
+     - Callback untuk menangani error jika terjadi kesalahan dalam permintaan.
+    
+  4. **Eksekusi**:
+     - Memanggil getPokemonDataCallback dengan nama Pokémon 'pikachu' dan menangani data serta error sesuai dengan callback yang diberikan.
 
-Promises adalah pola yang lebih modern untuk mengelola operasi asynchronous. Sebuah Promise merepresentasikan nilai yang mungkin tersedia sekarang, nanti, atau tidak sama sekali. Promise memiliki tiga status: pending, fulfilled, atau rejected.
 
-Contoh:
+### 2. **Promises**:
+
+Promises adalah pola yang lebih modern untuk mengelola operasi asynchronous. Sebuah Promise merepresentasikan nilai yang mungkin tersedia sekarang, nanti, atau tidak sama sekali. Promise memiliki tiga status: pending, fulfilled, atau rejected. Ini berbeda dengan teknik allback di mana setiap panggilan dilakukan satu per satu. Promise.all memungkinkan Anda mengambil data hero dan menggunakannya untuk membuat dua panggilan: satu untuk pesanan dan satu untuk perwakilan akun. Ketika keduanya telah memberikan respons, kode tersebut beralih ke then berikutnya.
+
+Contoh dengan API Pokémon dan Promises:
 ```js
-function fetchData() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const data = 'Some data';
-      resolve(data);
-    }, 1000);
-  });
-}
+const fetch = require('node-fetch');
 
-fetchData()
-  .then((result) => {
-    console.log(result);
+// Fungsi untuk mendapatkan data Pokémon dengan Promises
+const getPokemonDataPromise = function(pokemonName) {
+  let pokemon;
+
+  // Level 1 - Ambil data Pokémon dasar
+  return (
+    getPokemonBaseData(pokemonName)
+      // Level 2 - Set Pokémon dasar dan lanjutkan
+      .then((p) => {
+        pokemon = p;
+        return p;
+      })
+      // Level 3 - Ambil tipe dan statistik Pokémon
+      .then((pokemon) => Promise.all([getPokemonTypes(pokemon), getPokemonStats(pokemon)]))
+      // Gabungkan data tipe dan statistik ke dalam objek Pokémon
+      .then((result) => mergeData(result))
+  );
+
+  function getPokemonBaseData(name) {
+    return fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      });
+  }
+
+  function getPokemonTypes(pokemon) {
+    return fetch(pokemon.types[0].type.url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      });
+  }
+
+  function getPokemonStats(pokemon) {
+    return fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.id}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      });
+  }
+
+  function mergeData(result) {
+    const [types, stats] = result;
+    if (types) {
+      pokemon.types = types;
+    }
+    if (stats) {
+      pokemon.stats = stats;
+    }
+    return pokemon;
+  }
+};
+
+// Contoh penggunaan
+getPokemonDataPromise('pikachu')
+  .then((pokemon) => {
+    console.log('Pokemon data:', pokemon);
   })
   .catch((error) => {
-    console.error(error);
+    console.error('Error fetching Pokémon data:', error);
   });
+
 ```
 
-4. **Async/Await**:
+*** Penjelasan** 
+
+  1. getPokemonDataPromise(pokemonName):
+    - Mengambil data Pokémon berdasarkan nama menggunakan getPokemonBaseData.
+    - Mengambil data tipe dan statistik Pokémon secara bersamaan menggunakan Promise.all.
+    - Menggabungkan data tipe dan statistik ke dalam objek Pokémon dengan mergeData.
+
+  2. getPokemonBaseData(name):
+    - Mengambil data dasar Pokémon (misalnya ID dan nama) dari API.
+  
+  3. getPokemonTypes(pokemon):
+    - Mengambil data tipe Pokémon dari API menggunakan URL tipe yang diperoleh dari data dasar.
+
+  4. getPokemonStats(pokemon):
+    - Mengambil data statistik Pokémon dari API menggunakan ID Pokémon.
+
+  5. mergeData(result):
+    - Menggabungkan data tipe dan statistik ke dalam objek Pokémon.
+
+  6. Contoh Penggunaan:
+    - Mengambil data Pokémon untuk 'pikachu' dan menangani hasil atau error.
+
+
+### 3. **Async/Await**:
 
 Async/Await adalah pendekatan modern yang memungkinkan penulisan kode asynchronous dengan gaya yang mirip dengan kode synchronous. Ini berdasarkan Promise.
 
-Contoh:
+Contoh dengan API Pokemon dan Async&Await:
 ```JS
-function fetchData() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const data = 'Some data';
-      resolve(data);
-    }, 1000);
-  });
-}
+const axios = require('axios');
 
-async function main() {
+const apiUrl = 'https://pokeapi.co/api/v2'; // URL dasar API Pokémon
+
+// Mengambil data Pokémon dasar
+const getPokemonAsync = async function(pokemonName) {
   try {
-    const result = await fetchData();
-    console.log(result);
+    const response = await axios.get(`${apiUrl}/pokemon/${pokemonName}`);
+    return response.data;
   } catch (error) {
-    console.error(error);
+    handleAxiosErrors(error, 'Pokemon');
   }
+};
+
+// Mengambil data tipe Pokémon
+const getPokemonTypesAsync = async function(pokemon) {
+  try {
+    // Mengambil tipe Pokémon dari data dasar
+    const types = await Promise.all(
+      pokemon.types.map(async (typeInfo) => {
+        const response = await axios.get(typeInfo.type.url);
+        return response.data;
+      })
+    );
+    return types;
+  } catch (error) {
+    handleAxiosErrors(error, 'Types');
+  }
+};
+
+// Mengambil statistik Pokémon
+const getPokemonStatsAsync = async function(pokemon) {
+  try {
+    // Mengambil statistik Pokémon dari data dasar
+    const response = await axios.get(`${apiUrl}/pokemon/${pokemon.id}`);
+    return response.data.stats;
+  } catch (error) {
+    handleAxiosErrors(error, 'Stats');
+  }
+};
+
+// Fungsi untuk menangani kesalahan dari axios
+function handleAxiosErrors(error, context) {
+  console.error(`Error fetching ${context}:`, error);
 }
 
-main();
+// Fungsi utama untuk mengambil data Pokémon lengkap
+const getPokemonDataAsync = async function(pokemonName) {
+  try {
+    const pokemon = await getPokemonAsync(pokemonName);
+    const types = await getPokemonTypesAsync(pokemon);
+    const stats = await getPokemonStatsAsync(pokemon);
+    // Gabungkan data
+    return {
+      ...pokemon,
+      types,
+      stats
+    };
+  } catch (error) {
+    console.error('Error fetching Pokémon data:', error);
+  }
+};
+
+// Contoh penggunaan
+getPokemonDataAsync('pikachu')
+  .then((pokemon) => {
+    console.log('Pokemon data:', pokemon);
+  })
+  .catch((error) => {
+    console.error('Error fetching Pokémon data:', error);
+  });
 ```
 
+**Penjelasan**
+  1. getPokemonAsync(pokemonName):
+    - Mengambil data dasar Pokémon berdasarkan nama.
+     
+  3. getPokemonTypesAsync(pokemon):
+    - Mengambil data tipe Pokémon menggunakan URL tipe yang terdapat dalam data Pokémon.
+     
+  4. getPokemonStatsAsync(pokemon):
+    - Mengambil statistik Pokémon menggunakan ID Pokémon dari data dasar.
+     
+  5. handleAxiosErrors(error, context):
+    - Menangani kesalahan dari axios dengan mencetak pesan kesalahan.
+     
+  6. getPokemonDataAsync(pokemonName):
+    - Mengambil data lengkap Pokémon dengan memanggil fungsi-fungsi sebelumnya dan menggabungkan data.
+
+  7. Contoh Penggunaan:
+    - Mengambil data Pokémon untuk 'pikachu' dan mencetak hasilnya.
 
 
-5. **Set Timeout Function**:
+## Bonus
+
+**Set Timeout Function**:
+
 setTimeout adalah sebuah fungsi dalam JavaScript yang digunakan untuk menunda eksekusi suatu fungsi atau blok kode selama waktu tertentu. Fungsi ini sering digunakan untuk mensimulasikan operasi yang memakan waktu seperti mengambil data dari server, melakukan tugas berat, atau menjalankan suatu tugas setelah beberapa saat.
 
 Pada dasarnya, setTimeout menerima dua argumen:
