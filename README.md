@@ -15,5 +15,6 @@ Welcome to week 2 ges, gimana week 1 nya ? sudah merasa kepala kalian mau meleda
 - [Logic Nolep (Hospital Interface) :exploding_head: ](https://github.com/RPN-Phase-1/Week2-Backend-Fundamental-MVC/blob/main/logic_nolep/ln-hospitalInterface.md)
 - [CLI Chalk](https://github.com/RPN-Phase-1/Week2-Backend-Fundamental-MVC/blob/main/study_material/cli-app.md)
 - [Logic Nolep (CLI App Game) :exploding_head: ](https://github.com/RPN-Phase-1/Week2-Backend-Fundamental-MVC/blob/main/logic_nolep/cli-app-game.md)
+- [Logic Nolep (CLI Chess) :exploding_head: ](https://github.com/RPN-Phase-1/Week2-Backend-Fundamental-MVC/blob/main/logic_nolep/cli-chess.md)
 
 Mari Lanjut ke minggu selanjutnya, [LET'S GOOOO :rocket::rocket::rocket::rocket: ](https://github.com/RPN-Phase-1/Week3-Backend-MVC-Database)
