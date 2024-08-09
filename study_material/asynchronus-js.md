@@ -3,6 +3,8 @@ Selama ini code kalian berjalan synchronous (berurutan), kita akan belajar senja
 
 ## Asynchronous JavaScript
 
+![image](https://github.com/user-attachments/assets/8e70ee5d-2a75-40d9-adaa-102bd7489084)
+
 JavaScript adalah bahasa pemrograman yang berjalan di lingkungan satu utas (single-threaded), yang berarti ia hanya dapat melakukan satu tugas pada suatu waktu. Namun, JavaScript memiliki dukungan untuk operasi asynchronous yang memungkinkan eksekusi tugas lain tanpa menghentikan jalannya program utama. Operasi asynchronous sangat penting dalam pengembangan web modern, terutama ketika berhadapan dengan operasi jaringan, I/O, dan tugas yang membutuhkan waktu lama.
 
 1. **Synchronous vs. Asynchronous**
@@ -34,9 +36,9 @@ Output: 1, 3, 2 (2 ditunda selama 1 detik)
 
 ## Perbandingan Callbacks, Promise, dan Async & Await
 
-![image](https://github.com/user-attachments/assets/daa7f1c3-9b06-49aa-a0e1-d15e1d6ecad4)
-
 ### 1. **Callbacks**:
+
+![image](https://github.com/user-attachments/assets/b44c9b0a-9afb-4f67-88d8-62244d1d7d40)
 
 Callback adalah sebuah fungsi yang dilewatkan sebagai argumen ke dalam fungsi lain dan dijalankan setelah fungsi tersebut selesai. Saat menulis panggilan balik (Callback), kita akan mendapatkan serangkaian panggilan bersarang. Hal ini mudah dilihat ketika kita melihat kode di bawah ini karena semuanya cenderung mengarah ke kanan. Pergeseran ini juga dikenal sebagai "Piramida Kehancuran".
 
@@ -109,6 +111,8 @@ getPokemonDataCallback('pikachu', handlePokemonData, handleError);
 
 
 ### 2. **Promises**:
+
+![image](https://github.com/user-attachments/assets/0c776ca6-c232-44de-9b1e-f4a8bbeead94)
 
 Promises adalah pola yang lebih modern untuk mengelola operasi asynchronous. Sebuah Promise merepresentasikan nilai yang mungkin tersedia sekarang, nanti, atau tidak sama sekali. Promise memiliki tiga status: pending, fulfilled, atau rejected. Ini berbeda dengan teknik allback di mana setiap panggilan dilakukan satu per satu. Promise.all memungkinkan Anda mengambil data hero dan menggunakannya untuk membuat dua panggilan: satu untuk pesanan dan satu untuk perwakilan akun. Ketika keduanya telah memberikan respons, kode tersebut beralih ke then berikutnya.
 
@@ -211,6 +215,8 @@ getPokemonDataPromise('pikachu')
 
 
 ### 3. **Async/Await**:
+
+![image](https://github.com/user-attachments/assets/2bc19aeb-c073-4bc5-9bf2-74fd830ba89a)
 
 Async/Await adalah pendekatan modern yang memungkinkan penulisan kode asynchronous dengan gaya yang mirip dengan kode synchronous. Ini berdasarkan Promise.
 
