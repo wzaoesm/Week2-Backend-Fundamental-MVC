@@ -1,4 +1,4 @@
-# Node Js Module Part 12
+# Node Js Module 
 
 Mari kita bahas secara terpisah apa itu Node.js module, library, dan NPM, serta bagaimana cara pemakaiannya beserta contoh implementasi nyata.
 
