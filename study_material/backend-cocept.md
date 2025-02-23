@@ -1,4 +1,4 @@
-# Backend Concept Part 11.5
+# Backend Concept 
 
 `Backend Development` adalah proses pembuatan dan pengelolaan komponen dari sebuah aplikasi yang tidak terlihat oleh pengguna akhir, tetapi sangat penting untuk menjalankan fungsionalitas dan logika di balik layar. Ini melibatkan pengembangan server, pengolahan data, manajemen database, dan semua logika yang diperlukan agar aplikasi berfungsi dengan baik.
 
