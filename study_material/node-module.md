@@ -24,7 +24,7 @@ console.log(math.subtract(10, 4)); // Output: 6
 `require` dan `module.exports` adalah mekanisme inti dalam Node.js yang digunakan untuk membagi kode ke dalam modul yang dapat digunakan kembali. Dalam ES6 (ECMAScript 2015) dan versi JavaScript yang lebih baru, ada juga sintaks `import` dan `export` yang memiliki fungsi serupa tetapi digunakan dalam konteks yang sedikit berbeda. Berikut adalah penjelasan tentang keduanya:
 
 ### **require dan module.exports**:
-- **require**: Ini adalah fungsi yang digunakan di Node.js untuk mengimpor modul atau file lain. Dengan menggunakan require, Anda dapat mengakses dan menggunakan kode yang diekspor dari file lain di dalam proyek Anda.
+- **require**: Ini adalah fungsi yang digunakan di Node.js untuk mengimpor modul atau file lain. Dengan menggunakan require, Kalian dapat mengakses dan menggunakan kode yang diekspor dari file lain di dalam proyek Kalian.
 - **module.exports**: Ini adalah objek di dalam Node.js yang digunakan untuk mengekspor kode dari sebuah modul. Kode yang diekspor dapat diakses dan digunakan oleh modul lain yang mengimpornya menggunakan require.
 
 Contoh penggunaan require dan module.exports:
@@ -47,7 +47,7 @@ console.log(math.subtract(10, 4)); // Output: 6
 
 ### **Import dan export (ES6+)**:
 - **import**: Ini adalah pernyataan yang diperkenalkan dalam ES6 untuk mengimpor kode dari modul lain. Ini sering digunakan dalam lingkungan yang mendukung JavaScript modern (bukan hanya di Node.js).
-- **export**: Ini adalah pernyataan yang digunakan dalam ES6 untuk mengeskpor kode agar dapat diimpor oleh modul lain. Ini memungkinkan Anda untuk mengimpor fungsi, variabel, atau kelas dari modul lain.
+- **export**: Ini adalah pernyataan yang digunakan dalam ES6 untuk mengeskpor kode agar dapat diimpor oleh modul lain. Ini memungkinkan Kalian untuk mengimpor fungsi, variabel, atau kelas dari modul lain.
 
 Contoh penggunaan `import` dan `export`:
 
@@ -116,7 +116,7 @@ app.listen(3000, () => {
 
 
 Dalam contoh di atas, Express.js adalah library yang digunakan untuk mengembangkan server web dengan mudah dan efisien. 
-`package.json` adalah sebuah file yang berisi informasi tentang proyek Node.js Kalian, termasuk dependensi (library atau alat yang diperlukan oleh proyek Kalian), konfigurasi proyek, dan skrip yang dapat dijalankan. Ini adalah bagian penting dari setiap proyek Node.js karena membantu mengatur proyek Kalian dan memastikan bahwa pengembang lain dapat menggandakan lingkungan yang sama dengan mudah.
+`package.json` adalah sebuah file yang berisi informasi tentang proyek Node.js Kalian, termasuk dependensi (library atau alat yang diperlukan oleh proyek Kalian), konfigurasi proyek, dan skrip yang dapat dijalankan. Ini adalah bagian penting dari setiap proyek Node.js karena membantu mengatur proyek Kalian dan memastikan bahwa pengembang lain dapat menggKaliankan lingkungan yang sama dengan mudah.
 
 Di bawah ini adalah penjelasan tentang beberapa informasi yang biasanya ada dalam file package.json:
 
@@ -173,11 +173,11 @@ Reproducible Builds: Kalian dapat mereplikasi lingkungan proyek dengan mudah di 
 Sebagai catatan, folder node_modules tidak perlu di-commit ke dalam repositori Git karena Kalian dapat selalu menghasilkan kembali folder ini dengan menjalankan npm install di lingkungan baru. Oleh karena itu, folder ini biasanya diabaikan dalam file .gitignore. 
 `Ignore Node Modules`
 
-Untuk mengabaikan folder node_modules saat menggunakan Git, Anda perlu menambahkan entri ke dalam file .gitignore. Langkah-langkahnya adalah sebagai berikut:
+Untuk mengabaikan folder node_modules saat menggunakan Git, Kalian perlu menambahkan entri ke dalam file .gitignore. Langkah-langkahnya adalah sebagai berikut:
 
-1. Buka proyek Anda di editor teks favorit Anda.
+1. Buka proyek Kalian di editor teks favorit Kalian.
 
-2. Jika belum ada, buatlah atau buka file bernama .gitignore di direktori proyek Anda.
+2. Jika belum ada, buatlah atau buka file bernama .gitignore di direktori proyek Kalian.
 
 3. Tambahkan baris berikut ke dalam file .gitignore:
 ```
@@ -195,6 +195,6 @@ Baris ini akan memberi tahu Git untuk mengabaikan folder `node_modules` beserta 
 git commit -m "Add .gitignore to ignore node_modules"
 ```
 
-7. Selanjutnya, ketika Anda melakukan perubahan di proyek dan menjalankan perintah git status, Anda akan melihat bahwa folder node_modules diabaikan dan tidak masuk dalam daftar "Changes to be committed".
+7. Selanjutnya, ketika Kalian melakukan perubahan di proyek dan menjalankan perintah git status, Kalian akan melihat bahwa folder node_modules diabaikan dan tidak masuk dalam daftar "Changes to be committed".
 
-Mengabaikan folder `node_modules` sangat berguna karena folder ini biasanya berisi semua library (libraries) yang diunduh melalui npm, yang dapat cukup besar. Oleh karena itu, tidak ada kebutuhan untuk menyimpannya dalam repositori Git, karena Anda dapat dengan mudah menginstal ulang library-library tersebut dengan menjalankan `npm install` berdasarkan informasi yang ada dalam file `package.json`.
+Mengabaikan folder `node_modules` sangat berguna karena folder ini biasanya berisi semua library (libraries) yang diunduh melalui npm, yang dapat cukup besar. Oleh karena itu, tidak ada kebutuhan untuk menyimpannya dalam repositori Git, karena Kalian dapat dengan mudah menginstal ulang library-library tersebut dengan menjalankan `npm install` berdasarkan informasi yang ada dalam file `package.json`.
