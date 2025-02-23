@@ -1,4 +1,4 @@
-# Node Js Internal Module Part 15
+# Node Js Internal Module
 
 Node.js memiliki beberapa modul bawaan (internal modules) yang menyediakan berbagai fungsionalitas yang berguna untuk pengembangan aplikasi. Berikut adalah beberapa modul bawaan yang umum digunakan, beserta contoh implementasinya dengan pendekatan synchronous:
 
