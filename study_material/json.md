@@ -1,4 +1,4 @@
-# JSON Part 16
+# JSON
 
 JSON (JavaScript Object Notation) adalah sebuah format yang digunakan untuk pertukaran dan penyimpanan data. Ini merupakan format teks yang mudah dibaca oleh manusia dan mudah dipahami oleh mesin. JSON umum digunakan dalam komunikasi data antara server dan klien, penyimpanan konfigurasi, serta pertukaran data di berbagai aplikasi.
 
