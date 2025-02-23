@@ -2,7 +2,7 @@
 
 Bungkus isi dari tugas ini jadi folder hospital. disini kita menyimpan data menggunakan .json
 
-*Hospital Interface: Applikasi CRUD Sederhana*
+*Hospital Interface: Aplikasi CRUD Sederhana*
 
 **Deskripsi**:
 Kalian akan membuat aplikasi backend sederhana menggunakan terminal interface. kita akan mengatur input command dengan process.argv, dan menyesuaikan command tersebut di function function controller.
