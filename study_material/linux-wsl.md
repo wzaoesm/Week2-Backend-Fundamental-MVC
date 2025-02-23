@@ -84,3 +84,10 @@ Setelah itu kalian akan di minta merestart komputer kalian dan silahkan restart 
 ```
 code .
 ```
+
+Konfigurasi WSL ini ditujukan untuk murid yang menggunakan Windows saja, karena phase 1 ini dianjurkan kalian memakai ekosistem terminal linux agar mengerti dan memakai command command dari linux. Linux ini penting sekali untuk pembelajaran backend, karenan nantinya kalian akan menggunakan OS linux untuk kebutuhan deploying server backend ke VPS, Local Server ataupun Cloud Server.
+
+## Pengguna selain windows (boleh skip materi ini)
+Ya, jika kalian pengguna OS linux dari awal atau kalian memakai MAC OS kalian bisa skip materi ini. 
+
+
