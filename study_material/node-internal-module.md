@@ -241,7 +241,7 @@ Membuat server web yang mencatat semua aktivitas request ke dalam file log, deng
 - Menyimpan log ke file tanpa mengganggu respons server
 - Handle routing dasar
 
-### **Langkah Pembangunan:**
+### **Step Development:**
 
 #### **1. Inisialisasi Project**
 ```bash
@@ -342,7 +342,7 @@ Membuat sistem monitoring yang:
 - Menampilkan dalam format mudah dibaca
 - Menampilkan uptime server
 
-### **Langkah Pembangunan:**
+### **Step Development:**
 
 #### **1. Buat File Baru (di folder yang sama)**
 ```bash
