@@ -120,6 +120,11 @@ Dalam contoh di atas, Express.js adalah library yang digunakan untuk mengembangk
 
 Di bawah ini adalah penjelasan tentang beberapa informasi yang biasanya ada dalam file package.json:
 
+![image](https://github.com/user-attachments/assets/2f53d3b0-0d60-4d43-849c-398e02c62780)
+
+![image](https://github.com/user-attachments/assets/a61f1ff0-fcdd-4bbc-b304-41d25321753d)
+
+
 - **name**: Nama proyek Kalian.
 - **version**: Versi proyek.
 - **description**: Deskripsi singkat tentang proyek.
@@ -198,3 +203,7 @@ git commit -m "Add .gitignore to ignore node_modules"
 7. Selanjutnya, ketika Kalian melakukan perubahan di proyek dan menjalankan perintah git status, Kalian akan melihat bahwa folder node_modules diabaikan dan tidak masuk dalam daftar "Changes to be committed".
 
 Mengabaikan folder `node_modules` sangat berguna karena folder ini biasanya berisi semua library (libraries) yang diunduh melalui npm, yang dapat cukup besar. Oleh karena itu, tidak ada kebutuhan untuk menyimpannya dalam repositori Git, karena Kalian dapat dengan mudah menginstal ulang library-library tersebut dengan menjalankan `npm install` berdasarkan informasi yang ada dalam file `package.json`.
+
+Jadi kalau kalian ingin memakai modules atau library kalian perlu lakukan yang namanya init package.json terlebih dahulu dengan step step diatas.
+
+Kedepannya setiap kalian mengerjakan tugas kalian diwajibkan set up folder yang didalamnya ada init package.json agar bisa menginstall library/modules yang dibutuhkan.
