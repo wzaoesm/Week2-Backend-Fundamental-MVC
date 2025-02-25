@@ -155,12 +155,17 @@ npm init -y
 
 Setelah Kalian memiliki package.json, Kalian dapat menggunakan perintah npm install untuk menginstal dependensi yang dinyatakan di dalamnya. Misalnya:
 ```
-npm install expres
+npm install crypto-js
 ```
 
-Ini akan menginstal Express.js dan menambahkannya sebagai dependensi dalam package.json Kalian.
+Ini akan menginstal crypto-js dan menambahkannya sebagai dependensi dalam package.json Kalian.
 
-Dengan package.json, Kalian dapat mengelola dependensi, mengatur skrip, dan memberikan informasi penting tentang proyek Kalian dengan mudah.
+crypto-js ini hanyalah contoh buat penggunaan library saja, untuk development backend yang sebenarnya kalian akan banyak melakukan instalasi pada library library yang dibutuhkan. Dan kalian bisa melakukan instalasi multiple library dengan cara seperti ini :
+
+![image](https://github.com/user-attachments/assets/8ec6fede-2eef-470a-9087-b0eb276090ee)
+
+
+Dengan package.json, Kalian dapat mengelola dependensi, mengatur script, dan memberikan informasi penting tentang proyek Kalian dengan mudah.
 
 ## Node Modules
 
